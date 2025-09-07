@@ -113,7 +113,8 @@ I automated the entire transformation workflow using a Databricks job, which run
   **Solution:** I fixed permission errors by correcting the Metastore Admin assignment from my personal email to the proper Entra ID user, which resolved access issues.
 
 
-## 💰 Cost Analysis                                                                           
+## 💰 Cost Analysis      
+
 <img width="1420" height="980" alt="costanalysis_charts" src="https://github.com/user-attachments/assets/57f70bee-ce92-4054-9e04-261a8ce76ce9" />
 
 The total cost to implement and run this project during the first week of September 2025 was ₹480.70. All resources were deployed in the Central India region under an Azure for Students subscription.
@@ -133,3 +134,59 @@ Cost by Resource Group: The expenses were distributed across the two resource gr
 * `RG_car_project` (Primary Resources): ₹310.20
 
 * `managed_car_project` (Databricks-managed Resources): ₹170.50
+
+
+## 📂 Repository Structure
+
+```plaintext
+├── Azure Data Factory
+│   ├── Incremental_data_pipeline_SupportFiles
+│   │   ├── dataset
+│   │   │   ├── ds_bronze.json
+│   │   │   └── ds_sqldb.json
+│   │   ├── linkedService
+│   │   │   ├── ls_datalake.json
+│   │   │   └── ls_sqldb.json
+│   │   ├── pipeline
+│   │   │   ├── incremental_data_pipeline.json
+│   │   │   └── diagnostic.json
+│   │   └── info.txt
+│   ├── Source_prep_SupportFiles
+│   │   ├── dataset
+│   │   │   ├── ds_git.json
+│   │   │   └── ds_sqldb.json
+│   │   ├── linkedService
+│   │   │   ├── ls_github.json
+│   │   │   └── ls_sqldb.json
+│   │   ├── pipeline
+│   │   │   ├── source_prep.json
+│   │   │   └── diagnostic.json
+│   │   └── info.txt
+│
+├── Azure Databricks
+│   ├── db_notebook.ipynb
+│   ├── gold_dim_branch.ipynb
+│   ├── gold_dim_date.ipynb
+│   ├── gold_dim_dealer.ipynb
+│   ├── gold_dim_model.ipynb
+│   ├── gold_fact_sales.ipynb
+│   └── silver_notebook.ipynb
+│
+├── Azure SQL Server
+│   └── query.sql
+│
+├── Billings
+│   └── Billings.png
+│
+├── Diagrams
+│   ├── Architecture_Diagram.jpg
+│   └── star_schema.jpg
+│
+├── Raw Data
+│   ├── IncrementalSales.csv
+│   └── SalesData.csv
+│
+└── README.md
+
+│
+├── README.md
