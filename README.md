@@ -48,6 +48,9 @@ linked services:
 * **Initial Load (`source_prep` pipeline):**
 <img width="1913" height="912" alt="image" src="https://github.com/user-attachments/assets/f1141da2-dae4-469d-baac-e0eb7dcd2855" />
 
+<img width="1913" height="890" alt="Screenshot 2025-09-06 161808" src="https://github.com/user-attachments/assets/fc985796-5f22-4440-893d-59f6ba6826d0" />
+
+
 I built a Copy Activity to perform the initial, full load of the source data from GitHub directly into a table in an Azure SQL Database.
 
 * **Incremental Load (`incremental_data_pipeline` pipeline):**
@@ -87,19 +90,46 @@ I automated the entire transformation workflow using a Databricks job, which run
 ## 🚧 Challenges Faced & Solutions
 
 ### In Azure Data Factory
+
 * **SQL Connectivity:** During the initial setup, my ADF pipeline failed to connect to the Azure SQL Server.                                                                                                                                                              
+<img width="1919" height="914" alt="image" src="https://github.com/user-attachments/assets/1294fd53-330c-4fa6-933a-151924be5f0f" />
 
   **Solution:** I diagnosed this as a firewall issue and **resolved it by enabling the "Allow Azure services and resources to access this server"** setting in the SQL Server's networking panel.
 
 ### In Azure & Databricks
+
 * **Subscription & Region Limitations:** My initial resource deployment failed due to Azure for Students subscription restrictions.
+
+<img width="1919" height="872" alt="image" src="https://github.com/user-attachments/assets/706899cd-9138-46ee-8bee-9ba32e76dd56" />
 
   **Solution:** I researched supported regions, selected **Central India**, and successfully redeployed all resources.
   
-* **Cluster Creation:** I was unable to create a standard cluster due to policy restrictions.                                                                                                                    
-
+* **Cluster Creation:** I was unable to create a standard cluster due to policy restrictions.                                                                                               <img width="1690" height="774" alt="Screenshot 2025-09-07 201237" src="https://github.com/user-attachments/assets/c4cae3e8-6799-4d2d-be7e-aa627b294589" />
+                     
    **Solution:** I identified a compatible node type (**`Standard_D4s_v3`**) that worked within the subscription's core limits.
   
-* **Unity Catalog Permissions:** I was unable to create catalogs and schemas,error saying i don't have permission                                                                                                                                                                                          
-
+* **Unity Catalog Permissions:** I was unable to create catalogs and schemas,error saying i don't have permission                                                                                                                                                                        <img width="1919" height="911" alt="image" src="https://github.com/user-attachments/assets/dd073a49-be06-4dd6-8ff7-2a66c205d437" />
+               
   **Solution:** I fixed permission errors by correcting the Metastore Admin assignment from my personal email to the proper Entra ID user, which resolved access issues.
+
+
+## 💰 Cost Analysis                                                                           
+<img width="1420" height="980" alt="costanalysis_charts" src="https://github.com/user-attachments/assets/57f70bee-ce92-4054-9e04-261a8ce76ce9" />
+
+The total cost to implement and run this project during the first week of September 2025 was ₹480.70. All resources were deployed in the Central India region under an Azure for Students subscription.
+
+A detailed breakdown of the costs reveals the following key points:
+
+**Cost by Service:** The primary cost drivers were the core compute and database services.
+
+* **Azure SQL Database:** ₹183.94
+
+* **Azure Databricks:** ₹116.95
+
+* **NAT Gateway:** ₹110.94
+
+Cost by Resource Group: The expenses were distributed across the two resource groups as expected.
+
+* `RG_car_project` (Primary Resources): ₹310.20
+
+* `managed_car_project` (Databricks-managed Resources): ₹170.50
