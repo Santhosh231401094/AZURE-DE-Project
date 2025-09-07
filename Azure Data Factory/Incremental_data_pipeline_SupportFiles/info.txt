@@ -1,0 +1,6 @@
+selected resource name:		incremental_data_pipeline
+selected resource type:		pipeline
+factory name:			adf-cars-san
+factory location:		centralindia
+subscription id:		d6423d2a-e729-41a5-9615-eef8e39ccbf0
+time of download (UTC):		Thu, 04 Sep 2025 10:55:48 GMT
