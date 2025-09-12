@@ -55,6 +55,8 @@ I built a Copy Activity to perform the initial, full load of the source data fro
 
 * **Incremental Load (`incremental_data_pipeline` pipeline):**
 <img width="1919" height="919" alt="image" src="https://github.com/user-attachments/assets/29cf4e59-f7e1-40ec-94e7-5f71b8f10e9e" />
+<img width="1919" height="848" alt="Screenshot 2025-09-04 160047" src="https://github.com/user-attachments/assets/8804de58-ec99-46c1-a200-f1d3083b1420" />
+
 
   To handle ongoing updates, I engineered a pipeline to copy only new data from the SQL database to the ADLS Gen2 bronze container.                                                                                                                                                                                                                                                                                    
 * **Watermarking:** I implemented a robust watermarking technique by creating a dedicated table in Azure SQL to store the `last_load` date ID.                                                                                                        
